@@ -1,0 +1,28 @@
+version: '3'
+#
+services:
+    jupyter-ds:
+        image: jupyter/datascience-notebook:latest
+        user: root
+        volumes:
+            - /mnt/e/github:/home/jovyan/github-anari
+        ports:
+            - "8888:8888"
+            - "8501-8510:8501-8510"
+        environment:
+            - GRANT_SUDO=yes            
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        container_name: jupyter
+#
+    rstudio:
+        image: rocker/verse:devel      
+        volumes:
+            - /mnt/e/github:/home/rstudio/github-anari
+        ports:
+            - "8787:8787"
+        environment:
+            - ROOT=true
+            - PASSWORD=1022
+        container_name: rstudio
+# End of yml

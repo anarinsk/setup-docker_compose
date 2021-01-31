@@ -11,7 +11,7 @@ services:
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes:
-            - /mnt/c/Users/anari/github:/home/jovyan/github-anari
+            - /mnt/e/github:/home/jovyan/github-anari
         ports:
             - "8888:8888"
             - "8501-8510:8501-8510"
