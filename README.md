@@ -15,7 +15,7 @@ cases for my docker-compose
 
 - `jupyter/datascience-notebook` 컨테이너 구동을 위한 yml 파일 
 
-## Custiom Parts 
+## Custom Parts 
 
 - 환경 비밀 번호 
 
