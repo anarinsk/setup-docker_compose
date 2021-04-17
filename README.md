@@ -46,3 +46,14 @@ volumes:
 ```
 
 - `container_name`은 컨테이너의 이름을 정해준다. 
+
+# Docker compose 실행 
+
+- 여러 옵션에 관해서는 아래 참고 
+  - https://docs.docker.com/compose/reference/overview/
+  
+- 표준적인 실행 옵션은 아래와 같다. 
+
+```shell
+sudo docker-compose -f  /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d
+```
