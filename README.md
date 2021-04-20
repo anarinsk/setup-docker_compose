@@ -55,5 +55,8 @@ volumes:
 - 표준적인 실행 옵션은 아래와 같다. 
 
 ```shell
-sudo docker-compose -f  /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d
+sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d
 ```
+ - `-f`: yml file을 쓴다. 
+ - `-p`: compose 이름 
+ - `up`: 모든 콘테이너를 한번에 올리자! 
