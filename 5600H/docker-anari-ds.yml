@@ -39,7 +39,7 @@ services:
         volumes:
             - "./data:/mnt/space/ml"
         ports:
-            - "8888:8888"
+            - "8889:8888"
         deploy:
             resources:
                 reservations:

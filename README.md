@@ -3,7 +3,7 @@ cases for my docker-compose
 
 실제 활용중인 도커 case file을 보관하고 주석을 달아 둔다. 
 
-- 활용하는 PC 마다 디렉토리가 다르기 때문에 이는 디렉토리리로 구별한다. 
+- 활용하는 PC 마다 디렉토리가 다르기 때문에 이는 디렉토리로 구별한다. 
 
 ## Files Added 
 
@@ -15,11 +15,16 @@ cases for my docker-compose
 
 - `jupyter/datascience-notebook` 컨테이너 구동을 위한 yml 파일 
 
+### `docker-anari-tfgpu.yml`
+
+- CUDA 지원 tf + Jupyter 
+
 ## Custom Parts 
 
 - 환경 비밀 번호 
 
 ```shell
+## For Jupyter 
 environment:
             - GRANT_SUDO=yes 
             - JUPYTER_ENABLE_LAB=yes
@@ -27,6 +32,7 @@ environment:
 ```
 
 ```shell
+## For Rocker 
 environment: 
             #- DISABLE_AUTH=true
             - PASSWORD=1022
@@ -58,5 +64,5 @@ volumes:
 sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d
 ```
  - `-f`: yml file을 쓴다. 
- - `-p`: compose 이름 
+ - `-p`: compose에서 쓰는 이름 
  - `up`: 모든 콘테이너를 한번에 올리자! 
