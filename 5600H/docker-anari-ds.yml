@@ -51,4 +51,4 @@ services:
 # End of yml
 
 # Command: 
-# _ docker-compose -f /mnt/YOUR DIR/github/setup-docker_compose/5600H/docker-anari-ds.yml -p "anari-ds" up -d
+# _ docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-ds.yml -p "anari-ds" up -d

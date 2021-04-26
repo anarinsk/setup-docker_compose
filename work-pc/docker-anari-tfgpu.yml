@@ -10,7 +10,7 @@ services:
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes:
-            - "./data:/mnt/space/ml"
+            - "./data:/mnt/e/tmp/ml"
         ports:
             - "8889:8889"
         deploy:
@@ -24,4 +24,4 @@ services:
 # End of yml
 
 # Command: 
-#  _ docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-tfgpu.yml -p "anari-tfgpu" up -d
+#  _ docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/docker-anari-tfgpu.yml -p "anari-tfgpu" up -d

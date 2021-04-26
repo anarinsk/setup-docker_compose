@@ -19,4 +19,4 @@ services:
 # End of yml
 
 # Command: 
-# _ docker-compose -f /mnt/YOUR DIR/github/setup-docker_compose/5600H/docker-anari-jupyter.yml -p "anari-jupyter" up -d
+# _ docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-jupyter.yml -p "anari-jupyter" up -d
