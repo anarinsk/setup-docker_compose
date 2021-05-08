@@ -15,8 +15,8 @@ services:
         ports:
             - "8888:8888"
             - "8501-8510:8501-8510"
-        container_name: jupyter
+        container_name: jupyter-ds
 # End of yml
 
 # Command: 
-# _ docker-compose -f /mnt/YOUR DIR/github/setup-docker_compose/5600H/docker-anari-jupyter.yml -p "anari-jupyter" up -d
+# _ docker-compose -f /mnt/YOUR DIR/github/docker-anari-jupyter.yml -p "jupyter-ds" up -d
