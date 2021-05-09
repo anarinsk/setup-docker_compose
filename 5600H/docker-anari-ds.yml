@@ -3,8 +3,10 @@ version: '3'
 services:
 #
     jupyter-ds: 
-        image: jupyter/datascience-notebook:latest
-        #image: jupyter/datascience-notebook:julia-1.5.1
+        #image: jupyter/datascience-notebook:latest
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-jupyter
         user: root
         environment:
             - GRANT_SUDO=yes 
@@ -30,7 +32,10 @@ services:
         container_name: rstudio
 #
     tf-gpu:
-        image: tensorflow/tensorflow:latest-gpu-jupyter
+        #image: tensorflow/tensorflow:latest-gpu-jupyter
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-tfgpu
         environment:
             - NVIDIA_DISABLE_REQUIRE=1
             - GRANT_SUDO=yes
@@ -38,6 +43,7 @@ services:
             - JUPYTER_TOKEN=1022
         volumes:
             - "./data:/mnt/space/ml"
+            - /mnt/c/Users/anari/github:/tf/github-anari
         ports:
             - "8889:8888"
         deploy:
