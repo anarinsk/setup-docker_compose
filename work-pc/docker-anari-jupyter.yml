@@ -20,4 +20,4 @@ services:
 # End of yml
 
 # Command: 
-# _ docker-compose -f /mnt/YOUR DIR/github/docker-anari-jupyter.yml -p "jupyter-ds" up -d
+# _ docker-compose -f /mnt/e/github/github/docker-anari-jupyter.yml -p "jupyter-ds" up -d
