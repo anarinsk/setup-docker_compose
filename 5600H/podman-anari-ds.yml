@@ -32,7 +32,31 @@ services:
             - PASSWORD=1022
             - ROOT=TRUE 
         container_name: rstudio
+#
+    tf-gpu:
+        #image: tensorflow/tensorflow:latest-gpu-jupyter
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-tfgpu
+        environment:
+            - NVIDIA_DISABLE_REQUIRE=1
+            - GRANT_SUDO=yes
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes:
+            - "./data:/mnt/space/ml"
+            - /mnt/c/Users/anari/github:/tf/github-anari
+        ports:
+            - "8889:8888"
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
+        container_name: tf_gpu
 # End of yml
 
 # Command: 
-# sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-ds2.yml -p "anari-ds2" up -d
+# sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
