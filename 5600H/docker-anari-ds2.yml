@@ -20,7 +20,9 @@ services:
         container_name: jupyter
 #    
     rstudio: 
-        image: rocker/verse:devel
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-rstudio
         volumes: 
             - /mnt/c/Users/anari/github:/home/rstudio/github-anari
         ports: 

@@ -1,0 +1,21 @@
+version: '3'
+#
+services:
+#    
+    rstudio: 
+        build:
+            context: .
+            dockerfile: ./dockerfiles/dockerfile-rstudio
+        volumes: 
+            - /mnt/c/Users/anari/github:/home/rstudio/github-anari
+        ports: 
+            - "8787:8787"
+        environment: 
+            #- DISABLE_AUTH=true
+            - PASSWORD=1022
+            - ROOT=TRUE 
+        container_name: rstudio
+# End of yml
+
+# Command: 
+# sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-rstudio.yml -p "anari-rstudio" up -d

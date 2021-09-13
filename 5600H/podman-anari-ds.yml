@@ -48,15 +48,15 @@ services:
             - /mnt/c/Users/anari/github:/tf/github-anari
         ports:
             - "8889:8888"
-        deploy:
-            resources:
-                reservations:
-                    devices:
-                        - driver: nvidia
-                          device_ids: ['all']
-                          capabilities: [gpu]
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
         container_name: tf_gpu
 # End of yml
 
 # Command: 
-# sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/docker-anari-ds.yml -p "anari-ds" up -d
+# sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
