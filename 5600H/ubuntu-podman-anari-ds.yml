@@ -59,6 +59,4 @@ services:
 # End of yml
 
 # Command for ubuntu:
-# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
-# Command for ubuntu:
 # docker-compose -f ~/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
