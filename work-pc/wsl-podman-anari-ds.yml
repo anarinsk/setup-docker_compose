@@ -13,7 +13,7 @@ services:
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes: 
-            - /mnt/c/Users/anari/github:/home/jovyan/github-anari
+            - /mnt/e/github:/home/jovyan/github-anari
         ports: 
             - "8888:8888"
             - "8501-8510:8501-8510"       
@@ -24,7 +24,7 @@ services:
           context: .
           dockerfile: ./dockerfiles/dockerfile-rstudio
         volumes: 
-            - /mnt/c/Users/anari/github:/home/rstudio/github-anari
+            - /mnt/e/github:/home/rstudio/github-anari
         ports: 
             - "8787:8787"
         environment: 
@@ -45,7 +45,7 @@ services:
             - JUPYTER_TOKEN=1022
         volumes:
             - "./data:/mnt/space/ml"
-            - /mnt/c/Users/anari/github:/tf/github-anari
+            - /mnt/e/github:/tf/github-anari
         ports:
             - "8889:8888"
         # deploy:
@@ -59,4 +59,4 @@ services:
 # End of yml
 
 # Command for wsl-ubuntu:
-# docker-compose -f /mnt/e/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
+# docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/wsl-podman-anari-ds.yml -p "anari-ds" up -d
