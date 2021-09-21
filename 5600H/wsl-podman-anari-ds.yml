@@ -1,0 +1,62 @@
+version: '3'
+#
+services:
+#
+    jupyter-ds: 
+        #image: jupyter/datascience-notebook:latest
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-jupyter
+        user: root
+        environment:
+            - GRANT_SUDO=yes 
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes: 
+            - /mnt/c/Users/anari/github:/home/jovyan/github-anari
+        ports: 
+            - "8888:8888"
+            - "8501-8510:8501-8510"       
+        container_name: jupyter
+#    
+    rstudio: 
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-rstudio
+        volumes: 
+            - /mnt/c/Users/anari/github:/home/rstudio/github-anari
+        ports: 
+            - "8787:8787"
+        environment: 
+            #- DISABLE_AUTH=true
+            - PASSWORD=1022
+            - ROOT=TRUE 
+        container_name: rstudio
+#
+    tf-gpu:
+        #image: tensorflow/tensorflow:latest-gpu-jupyter
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-tfgpu
+        environment:
+            - NVIDIA_DISABLE_REQUIRE=1
+            - GRANT_SUDO=yes
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes:
+            - "./data:/mnt/space/ml"
+            - /mnt/c/Users/anari/github:/tf/github-anari
+        ports:
+            - "8889:8888"
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
+        container_name: tf_gpu
+# End of yml
+
+# Command for wsl-ubuntu:
+# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
