@@ -59,4 +59,4 @@ services:
 # End of yml
 
 # Command for wsl-ubuntu:
-# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/podman-anari-ds.yml -p "anari-ds" up -d
+# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/wsl-podman-anari-ds.yml -p "anari-ds" up -d
