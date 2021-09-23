@@ -81,3 +81,13 @@ sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/dock
  - `-f`: yml file을 쓴다. 
  - `-p`: compose에서 쓰는 이름. 네트워크도 이때 같이 묶이는 것 같다... (미확인)
  - `up`: 모든 콘테이너를 한번에 올리자! 
+
+ ## Practically...
+
+ - docker-compose 명령을 매번 찾아서 실행하기는 어려울 수 있다. 
+ - `.bashrc`에 alias로 넣어두자. 
+
+ ```shell
+ alias anari-compose='sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d'
+ ```
+- `anari-compose`로 쉽게 실행하자. 
