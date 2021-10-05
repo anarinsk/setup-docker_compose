@@ -15,8 +15,8 @@ services:
         volumes: 
             - /mnt/c/Users/anari/github:/home/jovyan/github-anari
         ports: 
-            - "8888:8888"
-            - "8501-8510:8501-8510"       
+            - 8888:8888
+            - 8501-8510:8501-8510       
         container_name: jupyter
 #    
     rstudio: 
@@ -26,11 +26,12 @@ services:
         volumes: 
             - /mnt/c/Users/anari/github:/home/rstudio/github-anari
         ports: 
-            - "8787:8787"
+            - 8787:8787
         environment: 
             #- DISABLE_AUTH=true
             - PASSWORD=1022
             - ROOT=TRUE 
+            #- RENV_PATHS_CACHE=/renv/cacheA
         container_name: rstudio
 #
     tf-gpu:
@@ -44,10 +45,10 @@ services:
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes:
-            - "./data:/mnt/space/ml"
+            - /mnt/c/Users/anari/tf-data:/tf/tf-data
             - /mnt/c/Users/anari/github:/tf/github-anari
         ports:
-            - "8889:8888"
+            - 8889:8888
         # deploy:
         #     resources:
         #         reservations:

@@ -10,4 +10,5 @@ RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && fc-cache -f -v \
     && rm -fr ~/.cache/matplotlib \
     && python -m pip install --upgrade pip setuptools wheel \
-    && pip install jupyterlab
+    && pip install jupyterlab \
+    && mkdir -p /tf/tf-data/
