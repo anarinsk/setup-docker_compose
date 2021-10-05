@@ -91,3 +91,10 @@ sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/dock
  alias anari-compose='sudo docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600h/docker-anari-ds.yml -p "anari-ds" up -d'
  ```
 - `anari-compose`로 쉽게 실행하자. 
+
+# Rstudio 관련 업데이트 
+
+https://rstudio.github.io/renv/articles/docker.html
+
+- podman을 쓰면 rootless로 돌아간다. 따라서 로컬에서 마음대로 폴더가 생성되지 않는다. 
+- 
