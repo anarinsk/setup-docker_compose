@@ -25,12 +25,14 @@ services:
           dockerfile: ./dockerfiles/dockerfile-rstudio
         volumes: 
             - /mnt/e/github:/home/rstudio/github-anari
+            - /mnt/e/renv:/home/rstudio/renv
         ports: 
             - "8787:8787"
         environment: 
             #- DISABLE_AUTH=true
             - PASSWORD=1022
             - ROOT=TRUE 
+            - RENV_PATHS_CACHE=/home/rstudio/renv
         container_name: rstudio
 #
     tf-gpu:
