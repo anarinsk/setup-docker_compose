@@ -1,0 +1,30 @@
+version: '3'
+#
+services:
+#    
+    rstudio: 
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-rstudio   
+        #user: rstudio
+        volumes:      
+            - /home/anari/github:/home/rstudio/github-anari
+            #- /home/anari/github:/home/anari/github-anari
+            #- /home/anari/rstudio/renv:/home/rstudio/renv
+        ports: 
+            - 8787:8787
+        restart: unless-stopped
+        environment: 
+            #- DISABLE_AUTH=true     
+            #- USERID=rstudio
+            #- GROUPID=anari
+            #- USER=anari
+            - UMASK=000   
+            - PASSWORD=1022
+            - ROOT=true
+            #- RENV_PATHS_CACHE=/home/rstudio/renv
+        container_name: rstudio
+# End of yml
+
+# Command for wsl-ubuntu:
+# docker-compose -f /home/anari/github/setup-docker_compose/5600H/ubuntu-podman-rocker.yml -p "anari-rocker" up -d

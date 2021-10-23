@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM docker.io/tensorflow/tensorflow:latest-gpu-jupyter
 # Declare root as user 
 USER root
 # Update Ubuntu / Install Nanum for Korean Font

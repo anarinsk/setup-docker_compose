@@ -1,6 +1,6 @@
 FROM docker.io/rocker/verse:devel
 # Declare root as user 
-USER root
+# USER root
 # Update Ubuntu / Install Nanum for Korean Font
 RUN    sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
@@ -10,4 +10,3 @@ RUN    sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get install -y fontconfig \
     && fc-cache \
     && rm -rf ~/.cache/matplotlib \
-    #&& chown -R rstudio /home/rstudio

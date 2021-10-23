@@ -1,0 +1,53 @@
+version: '3'
+#
+services:
+#    
+    rstudio: 
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-rstudio
+        #user: rstudio
+        volumes:      
+            #- /home/anari/github:/home/rstudio/github-anari   
+            - /home/anari/github:/home/anari/github-anari
+            #- /home/anari/rstudio/renv:/home/rstudio/renv
+        ports: 
+            - 8787:8787
+        environment: 
+            #- DISABLE_AUTH=true     
+            - USERID=anari
+            - GROUPID=anari
+            - USER=anari   
+            - PASSWORD=1022
+            - ROOT=true
+            #- RENV_PATHS_CACHE=/home/rstudio/renv
+        container_name: rstudio
+#
+    tf-gpu:
+        #image: tensorflow/tensorflow:latest-gpu-jupyter
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-tfgpu
+        privileged: true
+        environment:
+            - NVIDIA_DISABLE_REQUIRE=1
+            - GRANT_SUDO=yes
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes:
+            - /home/anari/tf-data:/tf/tf-data
+            - /home/anari/github:/tf/github-anari
+        ports:
+            - 8889:8888
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
+        container_name: tf_gpu
+# End of yml
+
+# Command for wsl-ubuntu:
+# docker-compose -f /home/anari/github/setup-docker_compose/5600H/ubuntu-podman-rocker.yml -p "anari-rocker" up -d
