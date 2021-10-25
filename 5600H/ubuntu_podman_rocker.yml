@@ -26,4 +26,4 @@ services:
 # End of yml
 
 # Command for wsl-ubuntu:
-# docker-compose -f /home/anari/github/setup-docker_compose/5600H/ubuntu-podman-rocker.yml -p "anari-rocker" up -d
+# docker-compose -f /home/anari/github/setup-docker_compose/5600H/ubuntu_podman_rocker.yml -p "anari-rocker" up -d

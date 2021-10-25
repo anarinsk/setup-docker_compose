@@ -5,7 +5,7 @@ services:
     rstudio: 
         build:
           context: .
-          dockerfile: ./dockerfiles/dockerfile-rstudio
+          dockerfile: ./dockerfiles/dockerfile-rstudio_ubuntu
         volumes: 
             - /mnt/c/Users/anari/github:/home/rstudio/github-anari
             - /mnt/c/Users/anari/renv:/home/rstudio/renv
@@ -21,4 +21,4 @@ services:
 # End of yml
 
 # Command for wsl-ubuntu:
-# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/wsl-podman-rocker.yml -p "anari-rocker" up -d
+# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/wsl_podman_rocker.yml -p "anari-rocker" up -d

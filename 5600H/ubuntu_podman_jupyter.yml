@@ -1,26 +1,36 @@
 version: '3'
 #
 services:
+#
+    jupyter-ds: 
+        #image: jupyter/datascience-notebook:latest
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-jupyter
+        user: root
+        environment:
+            - GRANT_SUDO=yes 
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes: 
+            - /home/anari/github:/home/jovyan/github-anari
+        ports: 
+            - "8888:8888"
+            - "8501-8510:8501-8510"       
+        container_name: jupyter
 #    
     rstudio: 
         build:
           context: .
           dockerfile: ./dockerfiles/dockerfile-rstudio
-        #user: rstudio
-        volumes:      
-            #- /home/anari/github:/home/rstudio/github-anari   
-            - /home/anari/github:/home/anari/github-anari
-            #- /home/anari/rstudio/renv:/home/rstudio/renv
+        volumes: 
+            - /home/anari/github:/home/rstudio/github-anari
         ports: 
-            - 8787:8787
+            - "8787:8787"
         environment: 
-            #- DISABLE_AUTH=true     
-            - USERID=anari
-            - GROUPID=anari
-            - USER=anari   
+            #- DISABLE_AUTH=true
             - PASSWORD=1022
-            - ROOT=true
-            #- RENV_PATHS_CACHE=/home/rstudio/renv
+            - ROOT=TRUE 
         container_name: rstudio
 #
     tf-gpu:
@@ -28,17 +38,16 @@ services:
         build:
           context: .
           dockerfile: ./dockerfiles/dockerfile-tfgpu
-        privileged: true
         environment:
             - NVIDIA_DISABLE_REQUIRE=1
             - GRANT_SUDO=yes
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes:
-            - /home/anari/tf-data:/tf/tf-data
+            - "./data:/mnt/space/ml"
             - /home/anari/github:/tf/github-anari
         ports:
-            - 8889:8888
+            - "8889:8888"
         # deploy:
         #     resources:
         #         reservations:
@@ -49,5 +58,5 @@ services:
         container_name: tf_gpu
 # End of yml
 
-# Command for wsl-ubuntu:
-# docker-compose -f /home/anari/github/setup-docker_compose/5600H/ubuntu-podman-rocker.yml -p "anari-rocker" up -d
+# Command for ubuntu:
+# docker-compose -f ~/github/setup-docker_compose/5600H/ubuntu_podman_jupyter.yml -p "anari-ds" up -d
