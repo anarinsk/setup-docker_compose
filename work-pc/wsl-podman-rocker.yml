@@ -12,9 +12,8 @@ services:
         ports: 
             - "8787:8787"
         environment: 
-            #- DISABLE_AUTH=true
-            #- USER=anari
             - PASSWORD=1022
+            - UMASK=000
             - ROOT=TRUE
             - RENV_PATHS_CACHE=/home/rstudio/renv
         container_name: rstudio

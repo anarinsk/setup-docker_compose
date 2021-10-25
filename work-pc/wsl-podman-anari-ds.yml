@@ -29,9 +29,9 @@ services:
         ports: 
             - "8787:8787"
         environment: 
-            #- DISABLE_AUTH=true
             - PASSWORD=1022
-            #- ROOT=TRUE 
+            - UMASK=000
+            - ROOT=TRUE
             - RENV_PATHS_CACHE=/home/rstudio/renv
         container_name: rstudio
 #
