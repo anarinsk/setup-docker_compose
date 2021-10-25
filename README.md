@@ -20,11 +20,14 @@
   + 컨테이너를 돌리는 컴퓨터 환경 
     + 5600H: 한성 노트북 
     + Work: 회사 컴퓨터 
-- `A_B.yml` 구조로 파일을 만든다. 
+- `A_B_C.yml` 구조로 파일을 만든다. 
   + `A`: 최상위 레벨로 컨테이너가 작동하는 OS level
     + `wsl`: 윈도우11의 wsl 환경
     + `ubuntu`: 네이티브 우분투  
-  + `B`: 컨테이너 내용 
+  + `B`: 컨테이너 툴 
+    + `podman`
+    + `docker`
+  + `C`: 컨테이너 내용 
     + `anari-jupyter`
     + `anari-rocker` 
 
