@@ -11,8 +11,7 @@
 
 ## How 
 
-- Jupyter 둘을 묶은 yml 파일 `anari-jupyter.yml`
-- Rocker 이미지를 별도로 `anari-rocker.yml`
+- 파일의 내용을 보고 짐작할 수 있게 만들자. 
 
 ### Classification 
 
@@ -28,8 +27,8 @@
     + `podman`
     + `docker`
   + `C`: 컨테이너 내용 
-    + `anari-jupyter`
-    + `anari-rocker` 
+    + `jupyter`
+    + `rocker` 
 
 ## When 
 
