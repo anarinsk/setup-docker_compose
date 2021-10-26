@@ -5,7 +5,7 @@ services:
     rstudio: 
         build:
           context: .
-          dockerfile: ./dockerfiles/dockerfile-rstudio_ubuntu
+          dockerfile: ./dockerfiles/dockerfile-rstudio_wsl
         volumes: 
             - /mnt/c/Users/anari/github:/home/rstudio/github-anari
             - /mnt/c/Users/anari/renv:/home/rstudio/renv
