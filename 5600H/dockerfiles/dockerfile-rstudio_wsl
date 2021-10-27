@@ -1,4 +1,4 @@
-FROM docker.io/rocker/verse:devel
+FROM rocker/verse:devel
 # Declare root as user 
 USER root
 # Update Ubuntu / Install Nanum for Korean Font
@@ -8,5 +8,7 @@ RUN    sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get -y upgrade \
     && apt-get install -y fonts-nanum* \  
     && apt-get install -y fontconfig \
-    && fc-cache -v \
-    && sudo chown -R rstudio:rstudio /home/rstudio \
+    && fc-cache -v 
+#
+RUN    R -e "install.packages(c('renv', 'devtools'))" \
+    && echo "Sys.setenv(R_INSTALL_STAGED = FALSE)" >> /home/rstudio/.Rprofile

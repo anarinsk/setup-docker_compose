@@ -8,15 +8,17 @@ services:
           dockerfile: ./dockerfiles/dockerfile-rstudio_wsl
         volumes: 
             - /mnt/c/Users/anari/github:/home/rstudio/github-anari
-            - /mnt/c/Users/anari/renv:/home/rstudio/renv
         ports: 
             - "8787:8787"
         environment: 
             #- DISABLE_AUTH=true
             #- USER=anari
+            #- RENV_PATHS_ROOT=home/rstudio/renv
+            #- RENV_PATHS_CACHE=/home/rstudio/renv-cache
             - PASSWORD=1022
+            #- UMASK=000
+            #- "R_INSTALL_STAGED=FALSE"
             - ROOT=TRUE 
-            - RENV_PATHS_CACHE=/home/rstudio/renv
         container_name: rstudio
 # End of yml
 
