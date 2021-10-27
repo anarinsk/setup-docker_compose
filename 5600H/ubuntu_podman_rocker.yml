@@ -11,17 +11,17 @@ services:
             - /home/anari/github:/home/rstudio/github-anari
             - /home/anari/rstudio/renv:/home/rstudio/renv
         ports: 
-            - 8787:8787
+            - "8787:8787"
         #restart: unless-stopped
         environment: 
             #- DISABLE_AUTH=true     
             #- USERID=rstudio
             #- GROUPID=anari
             #- USER=anari
-            - UMASK=000   
+            #- UMASK=000   
             - PASSWORD=1022
             - ROOT=true
-            - RENV_PATHS_CACHE=/home/rstudio/renv
+            #- RENV_PATHS_CACHE=/home/rstudio/renv
         container_name: rstudio
 # End of yml
 

@@ -10,3 +10,7 @@ RUN    sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get install -y fontconfig \
     && fc-cache -v \
     && usermod -G root rstudio \
+    && umask 000
+#
+RUN    R -e "install.packages(c('renv', 'devtools'))" \
+    && echo "Sys.setenv(R_INSTALL_STAGED = FALSE)" >> /home/rstudio/.Rprofile
