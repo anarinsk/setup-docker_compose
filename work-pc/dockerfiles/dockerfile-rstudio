@@ -8,9 +8,7 @@ RUN    sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get -y upgrade \
     && apt-get install -y fonts-nanum* \  
     && apt-get install -y fontconfig \
-    && sudo fc-cache -v \
-    #&& sudo usermod -G root rstudio
-    #&& sudo chown -R rstudio:rstudio /home/rstudio \ 
-    && R -e "install.packages('renv')" \
-    && R -e "install.packages('devtools')" \
-    && R -e "Sys.setenv(R_INSTALL_STAGED = FALSE)"
+    && sudo fc-cache -v
+RUN R -e "install.packages(c('renv', 'devtools'))" \
+    && echo "Sys.setenv(R_INSTALL_STAGED = FALSE)" >> /home/rstudio/.Rprofile \
+    
