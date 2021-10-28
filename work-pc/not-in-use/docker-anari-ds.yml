@@ -20,19 +20,15 @@ services:
         container_name: jupyter
 #    
     rstudio: 
-        build:
-          context: .
-          dockerfile: ./dockerfiles/dockerfile-rstudio
+        image: rocker/verse:devel
         volumes: 
             - /mnt/e/github:/home/rstudio/github-anari
-            - /mnt/e/renv:/home/rstudio/renv
         ports: 
             - "8787:8787"
         environment: 
+            #- DISABLE_AUTH=true
             - PASSWORD=1022
-            - UMASK=000
-            - ROOT=TRUE
-            - RENV_PATHS_CACHE=/home/rstudio/renv
+            - ROOT=TRUE 
         container_name: rstudio
 #
     tf-gpu:
@@ -50,15 +46,15 @@ services:
             - /mnt/e/github:/tf/github-anari
         ports:
             - "8889:8888"
-        # deploy:
-        #     resources:
-        #         reservations:
-        #             devices:
-        #                 - driver: nvidia
-        #                   device_ids: ['all']
-        #                   capabilities: [gpu]
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          device_ids: ['all']
+                          capabilities: [gpu]
         container_name: tf_gpu
 # End of yml
 
-# Command for wsl-ubuntu:
-# docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/wsl-podman-anari-ds.yml -p "anari-ds" up -d
+# Command: 
+# _ docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/docker-anari-ds.yml -p "anari-ds" up -d
