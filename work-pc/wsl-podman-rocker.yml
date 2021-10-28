@@ -20,4 +20,10 @@ services:
 # End of yml
 
 # Command for wsl-ubuntu:
-# docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/wsl-podman-rocker.yml -p "anari-rocker" up -d
+# docker-compose -f /mnt/e/github/setup-docker_compose/work-pc/wsl-podman-rocker.yml -p "anari-ds" up -d
+#
+# https://docs.docker.com/compose/reference/
+# -f: file to to run docker 
+# -p: name of project 
+# up: up 
+# -d: detached mode 

@@ -45,4 +45,10 @@ services:
 # End of yml
 #
 # Command for wsl-ubuntu:
-# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/wsl_podman_anari_jupyter.yml -p "anari-jupyter" up -d
+# docker-compose -f /mnt/c/Users/anari/github/setup-docker_compose/5600H/wsl_podman_anari_jupyter.yml -p "anari-ds" up -d
+#
+# https://docs.docker.com/compose/reference/
+# -f: file to to run docker 
+# -p: name of project 
+# up: up 
+# -d: detached mode 
