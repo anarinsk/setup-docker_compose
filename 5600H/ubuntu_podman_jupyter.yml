@@ -18,20 +18,6 @@ services:
             - "8888:8888"
             - "8501-8510:8501-8510"       
         container_name: jupyter
-#    
-    rstudio: 
-        build:
-          context: .
-          dockerfile: ./dockerfiles/dockerfile-rstudio
-        volumes: 
-            - /home/anari/github:/home/rstudio/github-anari
-        ports: 
-            - "8787:8787"
-        environment: 
-            #- DISABLE_AUTH=true
-            - PASSWORD=1022
-            - ROOT=TRUE 
-        container_name: rstudio
 #
     tf-gpu:
         #image: tensorflow/tensorflow:latest-gpu-jupyter

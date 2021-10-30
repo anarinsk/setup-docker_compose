@@ -18,7 +18,7 @@ services:
             #- USERID=rstudio
             #- GROUPID=anari
             #- USER=anari
-            #- UMASK=000   
+            - UMASK=000   
             - PASSWORD=1022
             - ROOT=true
             #- RENV_PATHS_CACHE=/home/rstudio/renv
