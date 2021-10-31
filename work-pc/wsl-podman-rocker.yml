@@ -13,7 +13,7 @@ services:
             - "8787:8787"
         environment: 
             - PASSWORD=1022
-            #- UMASK=000
+            - UMASK=000
             - ROOT=TRUE
             #- RENV_PATHS_CACHE=/home/anari/renv
         container_name: rstudio
