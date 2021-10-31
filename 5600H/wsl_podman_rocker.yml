@@ -16,7 +16,7 @@ services:
             #- RENV_PATHS_ROOT=home/rstudio/renv
             #- RENV_PATHS_CACHE=/home/rstudio/renv-cache
             - PASSWORD=1022
-            #- UMASK=000
+            - UMASK=000
             #- "R_INSTALL_STAGED=FALSE"
             - ROOT=TRUE 
         container_name: rstudio
