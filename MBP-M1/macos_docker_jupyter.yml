@@ -1,0 +1,54 @@
+version: '3'
+#
+services:
+#
+    jupyter-ds: 
+        #image: jupyter/datascience-notebook:latest
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-jupyter
+        user: root
+        environment:
+            - GRANT_SUDO=yes 
+            - JUPYTER_ENABLE_LAB=yes
+            - JUPYTER_TOKEN=1022
+        volumes: 
+            - /Users/anari/Documents/GitHub:/home/jovyan/github-anari
+        ports: 
+            - "8888:8888"
+            - "8501-8510:8501-8510"       
+        container_name: jupyter
+#
+#    tf-gpu:
+#        #image: tensorflow/tensorflow:latest-gpu-jupyter
+#        build:
+#          context: .
+#          dockerfile: ./dockerfiles/dockerfile-tfgpu
+#        environment:
+#            - NVIDIA_DISABLE_REQUIRE=1
+#            - GRANT_SUDO=yes
+#            - JUPYTER_ENABLE_LAB=yes
+#            - JUPYTER_TOKEN=1022
+#        volumes:
+#            - "./data:/mnt/space/ml"
+#            - /home/anari/github:/tf/github-anari
+#        ports:
+#            - "8889:8888"
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             devices:
+        #                 - driver: nvidia
+        #                   device_ids: ['all']
+        #                   capabilities: [gpu]
+#        container_name: tf_gpu
+# End of yml
+
+# Command for ubuntu:
+# docker-compose -f ~/github/setup-docker_compose/5600H/ubuntu_podman_jupyter.yml -p "anari-ds" up -d
+#
+# https://docs.docker.com/compose/reference/
+# -f: file to to run docker 
+# -p: name of project 
+# up: up 
+# -d: detached mode 
