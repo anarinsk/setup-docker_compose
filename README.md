@@ -34,6 +34,7 @@
 
 - 2021-10-26 문제 인식 
 - 2021-10-31 테스트 완료 
+- 2022-12-10 M1 macos 테스트 [LINK](https://github.dev/anarinsk/setup-docker_compose/macos-m1.md)
 
 ## MISC
 
