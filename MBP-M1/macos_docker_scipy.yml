@@ -3,6 +3,9 @@ version: '3'
 services:
 #
     jupyter-ds: 
+        #image: jupyter/scipy-noteboo
+        #image: jupyter/datascience-notebook:latest
+        #platform: "linux/arm64" # not working on version 3
         build:
           context: .
           dockerfile: ./dockerfiles/dockerfile-jupyter
