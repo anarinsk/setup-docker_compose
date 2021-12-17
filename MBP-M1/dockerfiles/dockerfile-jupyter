@@ -1,4 +1,5 @@
-FROM jpdolz/datascience-notebook:latest
+FROM achirosca/datascience-notebook
+#FROM jpdolz/datascience-notebook:latest
 # Declare root as user 
 USER root
 # Update Ubuntu / Install Nanum for Korean Font
