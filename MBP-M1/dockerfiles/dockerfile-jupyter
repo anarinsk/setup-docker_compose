@@ -1,3 +1,4 @@
+#FROM twaddlac/datascience-notebook-m1-compatible
 FROM achirosca/datascience-notebook
 #FROM jpdolz/datascience-notebook:latest
 # Declare root as user 
@@ -6,6 +7,7 @@ USER root
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get update && apt-get -y upgrade && apt-get install -y fonts-nanum* \
+    && pip3 install --upgrade pip \
     && apt-get install fontconfig -y \
     && fc-cache -f -v \
-    && rm -fr ~/.cache/matplotlib
+    && rm -rf /home/jovyan/.cache/matplotlib
