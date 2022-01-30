@@ -4,15 +4,18 @@ services:
 #
     jupyter-ds: 
         build:
-          context: .
-          dockerfile: ./dockerfiles/dockerfile-jupyter
+          context: ./dockerfiles
+          #dockerfile: ./dockerfiles/dockerfile-jupyter
+          dockerfile: Dockerfile-jupyter
+          #context: ~/Documents/GitHub/setup-docker_compose/MBP-M1/dockerfiles
+          #dockerfile: dockerfile-jupyter
         user: root
         environment:
             - GRANT_SUDO=yes 
             - JUPYTER_ENABLE_LAB=yes
             - JUPYTER_TOKEN=1022
         volumes: 
-            - /Users/anari/Documents/GitHub:/home/jovyan/github-anari
+            - ~/Documents/GitHub:/home/jovyan/github-anari
         ports: 
             - "8888:8888"
             - "8501-8510:8501-8510"       
@@ -44,7 +47,7 @@ services:
 # End of yml
 
 # Command for ubuntu:
-# docker-compose -f ~/Documents/GitHub/setup-docker_compose/MBP-M1/macos_docker_jupyter.yml -p "anari-ds" up -d
+# podman-compose -f ~/Documents/GitHub/setup-docker_compose/MBP-M1/macos_podman_jupyter.yml -p "anari-ds" up -d
 #
 # https://docs.docker.com/compose/reference/
 # -f: file to to run docker 

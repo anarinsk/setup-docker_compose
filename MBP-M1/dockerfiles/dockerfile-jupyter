@@ -1,13 +1,13 @@
 #FROM twaddlac/datascience-notebook-m1-compatible
-FROM achirosca/datascience-notebook
-#FROM jpdolz/datascience-notebook:latest
+FROM achirosca/datascience-notebook:latest
+#FROM jpdolz/datascience-notebook:latest -> Julia is excluded 
 # Declare root as user 
 USER root
 # Update Ubuntu / Install Nanum for Korean Font
-RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-    && sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-    && apt-get update && apt-get -y upgrade && apt-get install -y fonts-nanum* \
-    && pip3 install --upgrade pip \
-    && apt-get install fontconfig -y \
-    && fc-cache -f -v \
-    && rm -rf /home/jovyan/.cache/matplotlib
+RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && \
+    apt-get update && apt-get -y upgrade && apt-get install -y fonts-nanum* && \
+    pip3 install --upgrade pip && \
+    apt-get install fontconfig -y &&\
+    fc-cache -f -v && \
+    rm -rf /home/jovyan/.cache/matplotlib
