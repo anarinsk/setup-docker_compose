@@ -1,0 +1,35 @@
+version: '3'
+#
+services:
+#    
+    rstudio: 
+        build:
+          context: .
+          dockerfile: ./dockerfiles/dockerfile-rstudio_macos   
+        #user: rstudio
+        volumes:      
+            - /Users/anari/Documents/GitHub:/home/rstudio/github-anari
+            - /Users/anari/Documents/GitHub/tmp:/home/rstudio/renv
+        ports: 
+            - "8787:8787"
+        #restart: unless-stopped
+        environment: 
+            #- DISABLE_AUTH=true     
+            #- USERID=rstudio
+            #- GROUPID=anari
+            #- USER=anari
+            - UMASK=000   
+            - PASSWORD=1022
+            - ROOT=true
+            #- RENV_PATHS_CACHE=/home/rstudio/renv
+        container_name: rstudio
+# End of yml
+
+# Command for wsl-ubuntu:
+# docker-compose -f /Users/anari/Documents/Github/setup-docker_compose/MBP-M1/macos_docker_rocker.yml -p "rstudio" up -d
+#
+# https://docs.docker.com/compose/reference/
+# -f: file to to run docker 
+# -p: name of project 
+# up: up 
+# -d: detached mode 
