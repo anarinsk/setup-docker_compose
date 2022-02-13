@@ -1,0 +1,14 @@
+FROM docker.io/tensorflow/tensorflow:latest-gpu-jupyter
+# Declare root as user 
+USER root
+# Update Ubuntu / Install Nanum for Korean Font
+RUN sed -i 's|archive.ubuntu.com|mirror.kakao.com|g' /etc/apt/sources.list && \
+    sed -i 's|security.ubuntu.com|mirror.kakao.com|g' /etc/apt/sources.list && \
+    apt-get update && apt-get -y upgrade  && \
+    apt-get install -y fonts-nanum*  && \
+    apt-get install fontconfig -y  && \
+    fc-cache -f -v  && \
+    rm -fr ~/.cache/matplotlib  && \
+    python -m pip install --upgrade pip setuptools wheel  && \
+    pip install jupyterlab  && \
+    mkdir -p /tf/tf-data/
